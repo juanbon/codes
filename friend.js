@@ -37,19 +37,65 @@ console.log($(copa));
 
 
 
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split('dataFBID+');
+decodedCookie = decodeURIComponent(document.cookie);
+ca = decodedCookie.split('dataFBID+');
+
 
 if(ca.length == 2){
+
+valor = getcuky();
+
+if(valor!= ""){
+
+data = valor.split(",");
+console.log("El valor es: "+valor);
+
+}
+
+
+
 
 
 }else{
 
 
+//  Setear Cookie
+
+vaciarcoky();
+
+}
+
+function getcuky(){
+
+
+var decodedCookie = decodeURIComponent(document.cookie);
+var ca = decodedCookie.split('dataFBID+');
+var hh= ca[1];
+var val = hh.split(";");
+
+return val[0];
+
+}
+
+
+function vaciarcoky(){
+
+setcoky("");
+
+}
+
+
+function setcoky(val){
+
     var d = new Date();
     d.setTime(d.getTime() + (365*24*60*60*1000));
     var expires = 'expires='+ d.toUTCString();
-    document.cookie = 'dataFBID'+ '+' +''+
+    document.cookie = 'dataFBID'+ '+' +val+
         ';' + expires + ';path=/';
 
 }
+
+
+
+
+
