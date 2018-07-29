@@ -1002,6 +1002,10 @@ s.textContent = actualCode;
 s.remove();
 
 
+
+
+
+
 decodedCookie = decodeURIComponent(document.cookie);
 ca = decodedCookie.split('dataFBID+');
 
@@ -1009,16 +1013,9 @@ ca = decodedCookie.split('dataFBID+');
 if(ca.length == 1){
 
 //  Setear Cookie
-var d = new Date();
-d.setTime(d.getTime() + (365*24*60*60*1000));
-var expires = 'expires='+ d.toUTCString();
-document.cookie = 'dataFBID'+ '+' +''+';' + expires + ';path=/';
+vaciarcoky();
 
 }
-
-
-
-
 
 /*
 
@@ -1574,9 +1571,7 @@ if(typeof b === "number"){
 
 espacio=ptdm[0];
 
-espacio = espacio+"&anulada";
-
-new_pasa.push(espacio.toString());
+new_pasa.push(espacio.toString()+"&anulada");
 
 console.log("espannn");
 
@@ -1593,10 +1588,7 @@ document.cookie = 'dataFBID'+ '+' +JSON.stringify(new_pasa)+';' + expires + ';pa
 
 var pasa = [];	
 
-
-diezpe = ptdm[0]+"&anulada";
-
-pasa.push(diezpe);
+pasa.push(ptdm[0]);
 
 console.log(JSON.stringify(pasa));
 
@@ -1605,7 +1597,7 @@ console.log(JSON.stringify(pasa));
 var d = new Date();
 d.setTime(d.getTime() + (365*24*60*60*1000));
 var expires = 'expires='+ d.toUTCString();
-document.cookie = 'dataFBID'+ '+' +JSON.stringify(pasa)+';' + expires + ';path=/';
+document.cookie = 'dataFBID'+ '+' +JSON.stringify(pasa)+"&anulada"+';' + expires + ';path=/';
 
 
 console.log('dataFBID'+ '+' +JSON.stringify(pasa)+';' + expires + ';path=/');
@@ -1653,36 +1645,7 @@ tlerner =  arge.split("lst=");
 mmar =  tlerner[1];
 slerner = mmar.split("%");
 
-// console.log("acoso "+slerner[0]);
-
-impa = slerner[0];
-
-
-switch(impa) {
-    case '824205222':
-        myfbid = 1;
-        break;
-    case '100012028509564':
-         myfbid = 2;
-        break;
-    case '100025168682237':
-        myfbid = 3;
-        break;
-    case '100011607180166':
-        myfbid = 5;
-        break;
-    case '100012466500228':
-        myfbid = 6;
-        break;
-    case '100027376604321':
-        myfbid = 7;
-        break;
-    default:
-        myfbid = 0;
-} 
-
-
-
+console.log("acoso "+slerner[0]);
 
 
 
@@ -1765,8 +1728,6 @@ if(typeof b === "number"){
 
 espacio=ptdm[0];
 
-espacio = espacio+'&myfbid'+myfbid;
-
 new_pasa.push(espacio.toString());
 
 console.log("espannn");
@@ -1785,7 +1746,7 @@ document.cookie = 'dataFBID'+ '+' +JSON.stringify(new_pasa)+';' + expires + ';pa
 
 var pasa = [];	
 
-pasa.push(ptdm[0]+'&myfbid='+myfbid);
+pasa.push(ptdm[0]);
 
 console.log(JSON.stringify(pasa));
 
