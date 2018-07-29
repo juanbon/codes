@@ -51,6 +51,40 @@ GM_addStyle ( `
 }
 */
 
+.unamanzana{
+
+margin-right: 12px;
+background-color: #fff;
+background-image: none;
+border: 1px solid #90949c;
+border-radius: 2px;
+color: #4b4f56;
+text-shadow: none;
+font-family: -apple-system, sans-serif;
+box-sizing: border-box;
+position: relative;
+-webkit-user-select: none;
+z-index: 0;
+background: none;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+display: inline-block;
+font-size: 12px;
+height: 28px;
+line-height: 28px;
+margin: 0;
+    margin-right: 0px;
+overflow: visible;
+padding: 0 9px;
+text-align: center;
+vertical-align: top;
+white-space: nowrap;
+font-weight: normal;
+cursor: pointer;
+
+}
+
+
 .unapera{
 
 color:#fff;
@@ -1017,6 +1051,8 @@ if($(oo).parent().find('.unapera').length == 0){
 
  $(oo).parent().append("<button class='unapera'  type='button'>Agregar!</button>");
 
+ $(oo).parent().parent().parent().append("<button class='unamanzana' style='visibility:hidden' type='button'>Anular!</button>");
+
 
 }
 
@@ -1452,8 +1488,190 @@ if(($(".friendSearch").length > 0 )){
 
 
 
+//  Anular jquery facebook amigo
+
+
+
+
+$(".unamanzana").on("click",function(){
+
+
+
+var copa= $(this).parent().children()[0];
+
+copa= $(copa).parent().find("._41g3");
+
+
+
+
+
+// var copa= $(this).parent().children()[0];
+
+var linsus = $(copa).attr("href");
+var rrtt = linsus.split("php?id="); 
+var rrttb = rrtt[1];
+var ptdm = rrttb.split("&hf=timeline");
+
+ console.log(ptdm[0]);
+
+
+ console.log(document.cookie);
+
+
+
+
+var decodedCookie = decodeURIComponent(document.cookie);
+var ca = decodedCookie.split('dataFBID+');
+var hh= ca[1];
+var val = hh.split("]");
+
+if(val.length == 1){
+
+	acum = "";
+
+}else{
+
+	letra = val[0];
+	acum = letra.substr(1);
+
+}
+
+
+console.log(acum);
+
+console.log("tevez");
+
+if(acum!=""){
+
+
+console.log("ssssss");
+
+console.log(acum);
+
+var pasa2 = acum.split(",");
+
+new_pasa = [];
+
+$.each(pasa2,function(a,b){
+
+if(typeof b === "number"){
+
+	new_pasa.push(b.toString());
+
+}else{
+
+	new_pasa.push(JSON.parse(b));
+
+
+}
+
+
+
+});
+
+espacio=ptdm[0];
+
+new_pasa.push(espacio.toString()+"&anulada");
+
+console.log("espannn");
+
+console.log(new_pasa);
+
+
+var d = new Date();
+d.setTime(d.getTime() + (365*24*60*60*1000));
+var expires = 'expires='+ d.toUTCString();
+document.cookie = 'dataFBID'+ '+' +JSON.stringify(new_pasa)+';' + expires + ';path=/';
+
+
+}else{
+
+var pasa = [];	
+
+pasa.push(ptdm[0]);
+
+console.log(JSON.stringify(pasa));
+
+
+
+var d = new Date();
+d.setTime(d.getTime() + (365*24*60*60*1000));
+var expires = 'expires='+ d.toUTCString();
+document.cookie = 'dataFBID'+ '+' +JSON.stringify(pasa)+"&anulada"+';' + expires + ';path=/';
+
+
+console.log('dataFBID'+ '+' +JSON.stringify(pasa)+';' + expires + ';path=/');
+
+}
+
+console.log("por flores");
+console.log($(copa).parent().parent().parent());
+
+
+ $(copa).parent().next().next().children().trigger("click");
+
+$(copa).parent().parent().parent().find(".unamanzana").css("visibility","hidden");
+
+
+console.log("mondongo");
+console.log("tu mama");
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+///
 
 $(".unapera").on("click",function(){
+
+
+
+lerner = $("#root").find(".touchable")[1];
+arge = $(lerner).attr("href");
+tlerner =  arge.split("lst=");
+mmar =  tlerner[1];
+slerner = mmar.split("%");
+
+console.log("acoso "+slerner[0]);
+
+
+
+switch(slerner[0]) {
+    case '824205222':
+        myfbid = 1;
+        break;
+    case '100012028509564':
+         myfbid = 2;
+        break;
+    case '100025168682237':
+        myfbid = 3;
+        break;
+    case '100011607180166':
+        myfbid = 5;
+        break;
+    case '100012466500228':
+        myfbid = 6;
+        break;
+    default:
+        myfbid = 0;
+} 
+
+
+console.log(myfbid);
+
+
 
 var copa= $(this).parent().children()[0];
 
@@ -1569,11 +1787,28 @@ console.log('dataFBID'+ '+' +JSON.stringify(pasa)+';' + expires + ';path=/');
  $(copa).children().trigger("click");
 
 
+
+   $(copa).parent().next().next().hide();
+
+console.log("bonadeo");
+   console.log($(copa));
+console.log("milyuna");
+
+
+   $(copa).parent().parent().parent().find(".unamanzana").css("visibility","visible");
+/*
 console.log("sera el a ");
 console.log($(copa).parent().next().next());
 console.log("montreal ");
 
+if($(copa).parent().next().next().css('display') !== 'none') {
+    console.log("solicitud enviada con exito");
 
+    $(copa).parent().next().next().hide();
+    $(copa).parent().parent().append("<button class='unamanzana'  type='button'>Anular!</button>");
+}
+
+*/
 
 });
 
