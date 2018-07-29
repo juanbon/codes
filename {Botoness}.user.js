@@ -1638,6 +1638,7 @@ $(".unapera").on("click",function(){
 
 
 
+
 lerner = $("#root").find(".touchable")[1];
 arge = $(lerner).attr("href");
 tlerner =  arge.split("lst=");
@@ -1648,30 +1649,10 @@ console.log("acoso "+slerner[0]);
 
 
 
-switch(slerner[0]) {
-    case '824205222':
-        myfbid = 1;
-        break;
-    case '100012028509564':
-         myfbid = 2;
-        break;
-    case '100025168682237':
-        myfbid = 3;
-        break;
-    case '100011607180166':
-        myfbid = 5;
-        break;
-    case '100012466500228':
-        myfbid = 6;
-        break;
-    default:
-        myfbid = 0;
-} 
 
 
-console.log(myfbid);
 
-
+	
 
 var copa= $(this).parent().children()[0];
 
