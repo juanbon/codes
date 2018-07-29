@@ -51,6 +51,44 @@ GM_addStyle ( `
 }
 */
 
+.unapera{
+
+color:#fff;
+background: none;
+background-color: rgba(0, 0, 0, 0);
+background-image: none;
+display: inline-block;
+font-size: 12px;
+height: 28px;
+line-height: 28px;
+margin: 0;
+margin-right: 0px;
+overflow: visible;
+padding: 0 9px;
+text-align: center;
+vertical-align: top;
+white-space: nowrap;
+width: 70px !important;
+border: none;
+border-radius: 3px;
+box-sizing: border-box;
+position: relative;
+-webkit-user-select: none;
+z-index: 0;
+background-color: #4080ff;
+background-image: none;
+border-radius: 2px;
+
+
+}
+
+
+
+
+
+
+
+
 
 .sefuederumba, .sefuederumba::before, .sefuederumba::after {
 
@@ -554,6 +592,50 @@ $(".referencia").hide();
 }
 
 
+function getcuky(){
+
+
+var decodedCookie = decodeURIComponent(document.cookie);
+var ca = decodedCookie.split('dataFBID+');
+var hh= ca[1];
+var val = hh.split("]");
+
+if(val.length == 1){
+
+	return "";
+}
+
+letra = val[0];
+s = letra.substr(1);
+
+
+return s;
+
+
+}
+
+
+function vaciarcoky(){
+
+setcoky("");
+
+}
+
+
+function setcoky(val){
+
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = 'expires='+ d.toUTCString();
+    document.cookie = 'dataFBID'+ '+' +val+
+        ';' + expires + ';path=/';
+
+}
+
+
+
+
+
 
 function seva(){
 
@@ -887,6 +969,61 @@ s.remove();
 
 
 
+
+
+
+decodedCookie = decodeURIComponent(document.cookie);
+ca = decodedCookie.split('dataFBID+');
+
+
+if(ca.length == 1){
+
+//  Setear Cookie
+vaciarcoky();
+
+}
+
+/*
+
+function addFriend(g){
+
+copa= $(g).parent().children()[0];
+
+console.log($(copa));
+
+ $(copa).children().trigger("click");
+
+
+}
+
+*/
+
+
+function tremonos(){
+
+lu = $("._55wp:visible"); 
+
+$.each(lu,function(a,b){
+
+
+oo = $(b).find(".touchable")[0]; 
+
+ $(oo).hide(); 
+
+
+if($(oo).parent().find('.unapera').length == 0){
+
+// onclick='addFriend(this)'
+
+ $(oo).parent().append("<button class='unapera'  type='button'>Agregar!</button>");
+
+
+}
+
+
+});
+
+}
 
 
 
@@ -1282,6 +1419,10 @@ $(".init").val("ok");
         $(document).ready(function(){
 
 
+tremonos();
+
+
+
 
 $('<input>').attr({
     type: 'hidden',
@@ -1308,6 +1449,129 @@ if(($(".friendSearch").length > 0 )){
 
 
 }
+
+
+
+
+$(".unapera").on("click",function(){
+
+var copa= $(this).parent().children()[0];
+
+//console.log($(copa));
+var linsus = $(copa).attr("href");
+var rrtt = linsus.split("php?id="); 
+var rrttb = rrtt[1];
+var ptdm = rrttb.split("&hf=timeline");
+
+// .php?id=100009607923367&hf=timeline
+
+ console.log(ptdm[0]);
+
+
+ console.log(document.cookie);
+
+
+
+
+
+var decodedCookie = decodeURIComponent(document.cookie);
+var ca = decodedCookie.split('dataFBID+');
+var hh= ca[1];
+var val = hh.split("]");
+
+if(val.length == 1){
+
+	acum = "";
+
+}else{
+
+	letra = val[0];
+	acum = letra.substr(1);
+
+}
+
+
+
+
+// var acum = getcuky();
+
+console.log(acum);
+
+console.log("tevez");
+
+if(acum!=""){
+
+
+console.log("ssssss");
+
+console.log(acum);
+
+var pasa2 = acum.split(",");
+
+new_pasa = [];
+
+$.each(pasa2,function(a,b){
+
+if(typeof b === "number"){
+
+	new_pasa.push(b.toString());
+
+}else{
+
+	new_pasa.push(JSON.parse(b));
+
+
+}
+
+
+
+});
+
+espacio=ptdm[0];
+
+new_pasa.push(espacio.toString());
+
+console.log("espannn");
+
+console.log(new_pasa);
+
+// setcoky(JSON.stringify(new_pasa));
+
+var d = new Date();
+d.setTime(d.getTime() + (365*24*60*60*1000));
+var expires = 'expires='+ d.toUTCString();
+document.cookie = 'dataFBID'+ '+' +JSON.stringify(new_pasa)+';' + expires + ';path=/';
+
+
+}else{
+
+var pasa = [];	
+
+pasa.push(ptdm[0]);
+
+console.log(JSON.stringify(pasa));
+
+
+
+var d = new Date();
+d.setTime(d.getTime() + (365*24*60*60*1000));
+var expires = 'expires='+ d.toUTCString();
+document.cookie = 'dataFBID'+ '+' +JSON.stringify(pasa)+';' + expires + ';path=/';
+
+
+console.log('dataFBID'+ '+' +JSON.stringify(pasa)+';' + expires + ';path=/');
+
+// setcoky(JSON.stringify(pasa));
+
+}
+
+
+ $(copa).children().trigger("click");
+
+
+
+});
+
 
 
 
