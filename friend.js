@@ -29,3 +29,27 @@ console.log($(copa));
 
 
 }
+
+
+
+///
+
+
+
+
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split('dataFBID+');
+
+if(ca.length == 2){
+
+
+}else{
+
+
+    var d = new Date();
+    d.setTime(d.getTime() + (365*24*60*60*1000));
+    var expires = 'expires='+ d.toUTCString();
+    document.cookie = 'dataFBID'+ '+' +''+
+        ';' + expires + ';path=/';
+
+}
