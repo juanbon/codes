@@ -97,5 +97,11 @@ function setcoky(val){
 
 
 
+//   Cancelar solicitud de amistad
 
+
+fin=$("._58x3")[12];
+
+$(fin).children().trigger("click");
+ddddddddd
 

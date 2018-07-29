@@ -1569,6 +1569,11 @@ console.log('dataFBID'+ '+' +JSON.stringify(pasa)+';' + expires + ';path=/');
  $(copa).children().trigger("click");
 
 
+console.log("sera el a ");
+console.log($(copa).parent().next().next());
+console.log("montreal ");
+
+
 
 });
 
