@@ -626,8 +626,19 @@ $(".referencia").hide();
 }
 
 
-function getcuky(){
 
+function getCookie() {
+
+  var name = "myFBID";
+
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+/*
+
+function getcuky(){
 
 var decodedCookie = decodeURIComponent(document.cookie);
 var ca = decodedCookie.split('dataFBID+');
@@ -641,17 +652,14 @@ if(val.length == 1){
 
 letra = val[0];
 s = letra.substr(1);
-
-
 return s;
 
-
 }
-
+*/
 
 function vaciarcoky(){
 
-setcoky("");
+document.cookie = "myFBID=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 
 }
 
@@ -1002,20 +1010,51 @@ s.textContent = actualCode;
 s.remove();
 
 
+
+//  Setear Cookie
+
+//  BUSCO SI EXISTE UN VALOR 
+
+
+function setTimeForCookies (minutes) {
+	var now = new Date();
+	var time = now.getTime();
+ 
+	time += minutes * 60 * 1000;
+	now.setTime(time);
+	return now;
+}
+
+
+function getCookie() {
+
+  var name = "myFBID";
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+console.log(getCookie("myFBID")?"contiene":"nada");
+
+
+if(!getCookie("myFBID")){
+
+document.cookie = "myFBID=''; expires=" + setTimeForCookies(1000) + ";";
+
+}
+
+/*
 decodedCookie = decodeURIComponent(document.cookie);
 ca = decodedCookie.split('dataFBID+');
 
-
 if(ca.length == 1){
-
-//  Setear Cookie
 var d = new Date();
 d.setTime(d.getTime() + (365*24*60*60*1000));
 var expires = 'expires='+ d.toUTCString();
 document.cookie = 'dataFBID'+ '+' +''+';' + expires + ';path=/';
 
 }
-
+*/
 
 
 
@@ -1645,6 +1684,23 @@ console.log("tu mama");
 $(".unapera").on("click",function(){
 
 
+if(!getCookie("myFBID")){
+
+
+
+var now = new Date();
+var time = now.getTime();
+
+time += 1000 * 60 * 1000;
+now.setTime(time);
+
+
+
+document.cookie = "myFBID=''; expires=" + now + ";";
+
+}
+
+
 
 
 lerner = $("#root").find(".touchable")[1];
@@ -1708,7 +1764,7 @@ var ptdm = rrttb.split("&hf=timeline");
 
 
 
-
+/*
 
 var decodedCookie = decodeURIComponent(document.cookie);
 var ca = decodedCookie.split('dataFBID+');
@@ -1726,7 +1782,15 @@ if(val.length == 1){
 
 }
 
+*/
 
+// Obtener el valor
+
+var value = "; " + document.cookie;
+var parts = value.split("; myFBID=");
+acum = "";
+if (parts.length == 2) 
+var acum = parts.pop().split(";").shift();
 
 
 // var acum = getcuky();
@@ -1735,26 +1799,28 @@ console.log(acum);
 
 console.log("tevez");
 
-if(acum!=""){
+if(acum.length>2){
 
 
 console.log("ssssss");
 
 console.log(acum);
 
-var pasa2 = acum.split(",");
+// var pasa2 = acum.split(",");
+
+ var pasa2 = JSON.parse(acum);
 
 new_pasa = [];
 
 $.each(pasa2,function(a,b){
 
-if(typeof b === "number"){
+if(typeof b === "object"){
 
-	new_pasa.push(b.toString());
+	new_pasa.push(b[0]);
 
 }else{
 
-	new_pasa.push(JSON.parse(b));
+	new_pasa.push(b);
 
 
 }
@@ -1765,9 +1831,12 @@ if(typeof b === "number"){
 
 espacio=ptdm[0];
 
-espacio = espacio+'&myfbid'+myfbid;
+espacio = espacio+'&myfbid='+myfbid;
 
 new_pasa.push(espacio.toString());
+
+
+//  revisar
 
 console.log("espannn");
 
@@ -1775,15 +1844,21 @@ console.log(new_pasa);
 
 // setcoky(JSON.stringify(new_pasa));
 
+
+document.cookie = "myFBID="+JSON.stringify(new_pasa)+"; expires=" + setTimeForCookies(120) + ";";
+
+/*
 var d = new Date();
 d.setTime(d.getTime() + (365*24*60*60*1000));
 var expires = 'expires='+ d.toUTCString();
 document.cookie = 'dataFBID'+ '+' +JSON.stringify(new_pasa)+';' + expires + ';path=/';
-
+*/
 
 }else{
 
 var pasa = [];	
+
+console.log("radagast");
 
 pasa.push(ptdm[0]+'&myfbid='+myfbid);
 
@@ -1791,15 +1866,7 @@ console.log(JSON.stringify(pasa));
 
 
 
-var d = new Date();
-d.setTime(d.getTime() + (365*24*60*60*1000));
-var expires = 'expires='+ d.toUTCString();
-document.cookie = 'dataFBID'+ '+' +JSON.stringify(pasa)+';' + expires + ';path=/';
-
-
-console.log('dataFBID'+ '+' +JSON.stringify(pasa)+';' + expires + ';path=/');
-
-// setcoky(JSON.stringify(pasa));
+document.cookie = "myFBID="+JSON.stringify(pasa)+"; expires=" + setTimeForCookies(120) + ";";
 
 }
 
