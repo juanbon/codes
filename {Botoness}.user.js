@@ -1879,7 +1879,10 @@ document.cookie = "myFBID="+JSON.stringify(pasa)+"; expires=" + setTimeForCookie
 setTimeout(function(){ 
 
 
-	 if($("._55-i").length > 0 ){
+//    ||($("._55-j").html()=="No se puede agregar este amigo")){
+
+
+	 if($("._5m_t").length > 0 ){
 
 		console.log("esta solicitud no se ha enviado");
 
