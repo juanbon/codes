@@ -1879,9 +1879,32 @@ document.cookie = "myFBID="+JSON.stringify(pasa)+"; expires=" + setTimeForCookie
 setTimeout(function(){ 
 
 
-	 if($("._5m_t").length > 0 ){
+	 if($("._55-i").length > 0 ){
 
-console.log("esta solicitud no se ha enviado");
+		console.log("esta solicitud no se ha enviado");
+
+		rer = getCookie();
+
+		ff=JSON.parse(rer);
+
+
+		var last =  function(array, n) {
+		if (array == null) 
+		return void 0;
+		if (n == null) 
+		return array[array.length - 1];
+		return array.slice(Math.max(array.length - n, 0));  
+		};
+
+		var ultimo = last(ff);
+
+		ff.splice(-1,1);
+
+		ff.push(ultimo+"&negado");
+
+		document.cookie = "myFBID="+JSON.stringify(ff)+"; expires=" + setTimeForCookies(120) + ";";
+
+
 
 	 }
 
