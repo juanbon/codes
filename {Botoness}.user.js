@@ -1874,6 +1874,22 @@ document.cookie = "myFBID="+JSON.stringify(pasa)+"; expires=" + setTimeForCookie
  $(copa).children().trigger("click");
 
 
+//   $("._42b6").length > 0 )  _5m_t
+
+setTimeout(function(){ 
+
+
+	 if($("._5m_t").length > 0 ){
+
+console.log("esta solicitud no se ha enviado");
+
+	 }
+
+
+
+	 }, 2000);
+
+
 
    $(copa).parent().next().next().hide();
 
