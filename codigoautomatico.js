@@ -297,7 +297,7 @@ if(getCookie("encendido") == 0){
 
 			    	//console.log("tocame "+cont);
 
-
+  				  $(".tocame_"+cont).css("background-color","yellow");
 			      $(".tocame_"+cont).trigger("click");
 
 			        cont++;
@@ -645,6 +645,7 @@ $("body").append('<div class="helicoptero sevena" style="position: fixed; height
 	
 			    var contenedor = setInterval(function(){
 
+  				  $(".tocame_"+cont).css("background-color","yellow");
 			      $(".tocame_"+cont).trigger("click");
 
 			        cont++;
