@@ -81,6 +81,11 @@ cursor: pointer;
 }
 
 
+.sevena{
+
+	visibility:hidden;
+}
+
 .unapera{
 
 color:#fff;
@@ -227,6 +232,7 @@ $(".festejando").hide();
 $(".pelota").hide();
 $(".unico").hide();
 $(".suecia").css("visibility","hidden");
+$(".referencia").hide();
 
 }else{
 
@@ -234,12 +240,138 @@ $( ".suecia" ).trigger( "click" );
 
 $(".festejando").show();
 $(".suecia").css("visibility","visible");
+$(".referencia").show();
 //  ocultar los otros botones
 
   }
 }
 
+function setTimeForCookies (minutes) {
+	var now = new Date();
+	var time = now.getTime();
+ 
+	time += minutes * 60 * 1000;
+	now.setTime(time);
+	return now;
+}
 
+
+
+
+
+
+function getCookie(name) {
+
+ // var name = "encendido";
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+
+
+function decadas(){
+
+
+// si esta apagado se enciende
+
+if(getCookie("encendido") == 0){
+
+
+	if(getCookie("vueltas") != 0){
+
+			document.cookie = " encendido=1; expires=" + setTimeForCookies(1300) + ";";
+
+			// $(".referencia").val("");
+
+			$(".cacho").children().html("Detener");
+
+
+
+			var cont = 0;
+	
+			    var contenedor = setInterval(function(){
+
+
+			    	//console.log("tocame "+cont);
+
+
+			      $(".tocame_"+cont).trigger("click");
+
+			        cont++;
+			        if(cont == 6) 
+			        {
+
+			        	desce = parseInt(getCookie("vueltas"))-1;
+
+						document.cookie = " vueltas="+desce+"; expires=" + setTimeForCookies(991300) + ";";
+
+			            clearInterval(contenedor);
+			            location.reload(true);
+
+			        }
+			    }, 15000); 
+
+			    $(".contenedor").val(contenedor);
+
+
+
+
+
+
+
+
+
+
+
+		}
+
+}else{
+
+
+        clearInterval($(".contenedor").val());
+
+		document.cookie = " encendido=0; expires=" + setTimeForCookies(1300) + ";";
+		document.cookie = " vueltas=0; expires=" + setTimeForCookies(1300) + ";";
+
+		$(".referencia").val("");
+
+		$(".cacho").children().html("Iniciar");
+
+	}
+
+}
+
+
+function andabien(){
+
+ if($(".referencia").val() != ""){
+		
+		pasadas = $(".referencia").val();
+		encendido= 1;
+
+	}else{
+		pasadas = 999;
+		encendido= 1;
+	}
+
+if(parseInt(pasadas)==0){
+	encendido = 0;
+}
+
+
+/* document.cookie = " encendido="+encendido+"; expires=" + setTimeForCookies(991300) + ";";  */ 
+document.cookie = " vueltas="+pasadas+"; expires=" + setTimeForCookies(991300) + ";";
+
+
+$(".chueco").children().html("YEAH!");
+$(".referencia").val((getCookie("vueltas")));
+
+
+setTimeout(function(){ $(".chueco").children().html("Setear!"); }, 500);
+
+
+}
 
 
 
@@ -257,12 +389,14 @@ function ronaldo(){
 
 $(".referencia").show();
 
- 
+
 
          $(".friends").hide();
     
 
      }else{
+
+// //console.log("se cerro");
 
       $(".nombres").hide();
       $(".nombres").html("");
@@ -272,8 +406,7 @@ $(".referencia").show();
       $(".pelota").hide();
       $(".festejando").show();
       $(".suecia").html("&gt;");
-
-$(".referencia").hide();
+      $(".referencia").hide();
 
      if ( !$(".scrollArea").length > 0 ) {
 
@@ -322,9 +455,132 @@ javascript:(function() {
 })();
 
 
+
+
+
+function setTimeForCookies (minutes) {
+	var now = new Date();
+	var time = now.getTime();
+ 
+	time += minutes * 60 * 1000;
+	now.setTime(time);
+	return now;
+}
+
+
+
+function getCookie(name) {
+
+ // var name = "encendido";
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+
+
+
+
+//   cualquiera  FORZO LA RECARGA DE PAGINA; ASI NO HAYA O SI; CARGADO JQUERY
+
+//console.log("bolass");
+
+encendido = null;
+vueltas = null;
+
+  var value = "; " + document.cookie;
+  var parts = value.split("; encendido=");
+  if (parts.length == 2) 
+  	encendido= parts.pop().split(";").shift();
+
+
+    var value = "; " + document.cookie;
+  var parts = value.split("; vueltas=");
+  if (parts.length == 2) 
+  	vueltas= parts.pop().split(";").shift();
+
+
+	if((encendido!=0)&& (vueltas!=0) ){
+
+
+setTimeout(function(){ location.reload(true); }, 100000);
+
+
+	}
+
+
+//
+
+
+
+
+
+
+
+
 $(document).ready(function(){
 
 
+
+
+
+
+
+$('<input>').attr({
+    type: 'hidden',
+    id: 'contenedor',
+    class: 'contenedor',
+    name: 'contenedor'
+}).appendTo('body');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   cualquiera 
+
+//console.log("bolass");
+
+encendido = null;
+vueltas = null;
+
+  var value = "; " + document.cookie;
+  var parts = value.split("; encendido=");
+  if (parts.length == 2) 
+  	encendido= parts.pop().split(";").shift();
+
+
+    var value = "; " + document.cookie;
+  var parts = value.split("; vueltas=");
+  if (parts.length == 2) 
+  	vueltas= parts.pop().split(";").shift();
+
+//   cualquiera
+
+
+
+
+
+
+
+
+  if((!(encendido)) || (!(vueltas)) ) {
+
+
+document.cookie = "encendido=0; vueltas=0; expires=" + setTimeForCookies(1000) + ";";
+
+}
 
 /*
 
@@ -341,22 +597,133 @@ val:'aaaaaaaa',
 
 if ($('.enlocal').length > 0) {
 
+//
+// //console.log("dsdsdd");
+
+//  // //console.log(encendido,apagado+"  ddddddddsss");
+
+
+//// //console.log(getCookie("encendido")?"contiene":"nada");   visibility:hidden;
+
+$("body").append('<div class="helicoptero sevena" style="position: fixed; height: 131px; left: 32%; top: 50%; margin-top: -100px;"><input class="referencia" name="referencia" style="text-align:center;position: relative; top: 60px; width: 64px; height: 27px; left: 86px;" type="text"><div id="checkboxContainer"><div class="seva" onclick="seva()" style="border-color:#f2f2f2;border-style: solid;border-width: 2px;background-color:white;width:50px;height: 20px;margin-left: 90px;"></div><a href="javascript:void(0)" onclick="andabien()" class="soy_boton unico festejando chueco button button-inline button-success" style="margin-left: 70px; width: 70px !important; height: 19px !important; margin-top: 46px !important; line-height: 19px !important; display: block; background: #f9960a; color: #fafafa; top: 79px;"><span>Setear!</span></a><a href="javascript:void(0)" onclick="decadas()" class="soy_boton ocultar festejando cacho button button-inline button-success" style="margin-left:70px;width: 70px !important;height: 19px !important;margin-top: 13px !important;line-height: 19px !important;display:block;background:rgb(0, 204, 0) none repeat scroll 0% 0%;color: #fafafa;"><span>Iniciar</span></a><a href="javascript:void(0)" onclick="catcher()" class="catcher soy_boton pelota button button-inline button-success" style="display:none;position:fixed;margin-left:70px;width: 70px !important;height: 19px !important;margin-top: 13px !important;line-height: 19px !important;background:orange;color: #fafafa;"><span>Catch</span></a><a href="javascript:void(0)" class="hey soy_boton pelota button button-inline button-success" style="display:none;position: fixed; margin-left: 70px; width: 70px !important; height: 19px !important; margin-top: 72px !important; line-height: 19px !important; background: rgb(0, 204, 0) none repeat scroll 0% 0%; color: rgb(250, 250, 250);" onclick="ajax()"><span>SEND</span></a><a href="javascript:void(0)" onclick="friends()" class="friends pelota button button-inline button-success" style="display:none;position: fixed; margin-left: 70px; width: 70px !important; height: 19px !important; margin-top: 70px !important; line-height: 19px !important; text-align: center; cursor: pointer; border: medium none; padding: 14px; border-radius: 5px; font-size: 18px; transition-property: background-color; transition-duration: 0.2s; transition-timing-function: linear; background: red none repeat scroll 0% 0%; color: rgb(250, 250, 250);"><span> Friends </span><span class="test_friends"></span></a><textarea class="nombres" style="display:none;width: 250px;margin-top:15px;height: 170px;"></textarea></div></div>');
+
+//  if((!getCookie("encendido")) || (!getCookie("vueltas")) ) {
 
 
 
-     $("body").append('<div style="position: fixed; height: 131px; left: 32%; top: 50%; margin-top: -100px;"><input class="referencia" name="referencia" style="position: relative; top: 60px; width: 64px; height: 27px; left: 86px;" type="text"><div id="checkboxContainer"><div class="seva" onclick="seva()" style="border-color:#f2f2f2;border-style: solid;border-width: 2px;background-color:white;width:50px;height: 20px;margin-left: 90px;"></div><a href="#nada" onclick="andabien()" class="soy_boton unico festejando button button-inline button-success" style="margin-left: 70px; width: 70px !important; height: 19px !important; margin-top: 46px !important; line-height: 19px !important; display: block; background: #f9960a; color: #fafafa; top: 79px;"><span>Setear!</span></a><a href="#nada" onclick="ocultar()" class="soy_boton ocultar festejando button button-inline button-success" style="margin-left:70px;width: 70px !important;height: 19px !important;margin-top: 13px !important;line-height: 19px !important;display:block;background:rgb(0, 204, 0) none repeat scroll 0% 0%;color: #fafafa;"><span>Iniciar</span></a><a href="#nada" onclick="andabien()" class="soy_boton pelota primero  button button-inline button-success" style="margin-left:70px;width: 70px !important;height: 19px !important;margin-top: 13px !important;line-height: 19px !important;display:none;background: blue;color: #fafafa;"><span>Todos</span></a><a href="#nada" onclick="catcher()" class="catcher soy_boton pelota button button-inline button-success" style="display:none;position:fixed;margin-left:70px;width: 70px !important;height: 19px !important;margin-top: 13px !important;line-height: 19px !important;background:orange;color: #fafafa;"><span>Catch</span></a><a href="#nada" class="hey soy_boton pelota button button-inline button-success" style="display:none;position: fixed; margin-left: 70px; width: 70px !important; height: 19px !important; margin-top: 72px !important; line-height: 19px !important; background: rgb(0, 204, 0) none repeat scroll 0% 0%; color: rgb(250, 250, 250);" onclick="ajax()"><span>SEND</span></a><a href="#nada" onclick="friends()" class="friends pelota button button-inline button-success" style="display:none;position: fixed; margin-left: 70px; width: 70px !important; height: 19px !important; margin-top: 70px !important; line-height: 19px !important; text-align: center; cursor: pointer; border: medium none; padding: 14px; border-radius: 5px; font-size: 18px; transition-property: background-color; transition-duration: 0.2s; transition-timing-function: linear; background: red none repeat scroll 0% 0%; color: rgb(250, 250, 250);"><span> Friends </span><span class="test_friends"></span></a><textarea class="nombres" style="display:none;width: 250px;margin-top:15px;height: 170px;"></textarea></div></div>');
+  var value = "; " + document.cookie;
+  var parts = value.split("; encendido=");
+  if (parts.length == 2) 
+  	encendido= parts.pop().split(";").shift();
 
 
-/*
+    var value = "; " + document.cookie;
+  var parts = value.split("; vueltas=");
+  if (parts.length == 2) 
+  	vueltas= parts.pop().split(";").shift();
 
-setInterval(function(){ 
 
-$("button").eq(0).trigger("click");
 
- }, 15000);
 
-*/
-  
+//// //console.log("ooooooooooooooo");
+
+
+	if((encendido!=0)&& (vueltas!=0) ){
+
+
+
+
+
+
+			var cont = 0;
+	
+			    var contenedor = setInterval(function(){
+
+			      $(".tocame_"+cont).trigger("click");
+
+			        cont++;
+			        if(cont == 6) 
+			        {
+
+
+			        	desce = parseInt(getCookie("vueltas"))-1;
+
+						document.cookie = " vueltas="+desce+"; expires=" + setTimeForCookies(991300) + ";";
+
+			            clearInterval(contenedor);
+			            location.reload(true);
+
+			        }
+			    }, 15000); 
+
+			    $(".contenedor").val(contenedor);
+
+
+
+
+
+
+
+	//	//console.log("concha de tu madre ");
+
+	//	//console.log("aaaaaaaaa");
+
+	setTimeout(function(){ 
+
+//	  $(".seva").trigger("click");  lo saque por las dudas
+	//  $(".referencia").hide();
+
+	 }, 100);
+
+
+
+	setTimeout(function(){ $(".helicoptero").css("visibility","visible"); }, 100);
+	 
+
+	//    document.cookie = "encendido=''; expires=" + setTimeForCookies(1000) + ";";
+
+	}else{
+
+	document.cookie = "encendido=0; expires=" + setTimeForCookies(1000) + ";";
+
+	$(".cacho").children().html("Iniciar");
+
+
+//   // //console.log("tiene que mostrar");
+
+$(".helicoptero").removeClass("sevena");
+
+
+//   setTimeout(function(){ $(".helicoptero").removeClass("sevena"); // //console.log("ddddddd"); }, 1000);
+
+
+
+	}
+
+//  }
+
+if(getCookie("vueltas")){
+
+	espa = (getCookie("vueltas")==0)?"":getCookie("vueltas");
+
+	$(".referencia").val(espa);
+
+}
+
+if(getCookie("encendido") !=0){
+
+	$(".cacho").children().html("Detener!");
+
+}
+
+
+
+
+//  
+//   cacho detener
+
+
+
 
 
 }else{
@@ -364,17 +731,64 @@ $("button").eq(0).trigger("click");
 //  deberia hacer click esperar un tiempo, y cerrar
 
 
+//  ciera la ventana nueva
 
 
-/*
+encendido = null;
+vueltas = null;
 
-setTimeout(function(){ 
+var value = "; " + document.cookie;
+var parts = value.split("; encendido=");
+if (parts.length == 2) 
+	encendido= parts.pop().split(";").shift();
 
-self.close();
+var value = "; " + document.cookie;
+var parts = value.split("; vueltas=");
+if (parts.length == 2) 
+	vueltas= parts.pop().split(";").shift();
 
- }, 5000);
 
-*/
+//  if((encendido!=0)&&(vueltas!=0) ){
+
+
+if ($('.z').length > 0) {
+
+
+
+	bra = $(".z")[1];
+
+	 $(bra).trigger("click");
+
+
+
+
+
+}
+
+
+if($(".bj").children().length >10){
+
+
+	setTimeout(function(){ 
+
+	self.close();
+
+	//console.log($(bra));
+
+	//console.log("la cierrooooo ")
+
+	 }, 2000);
+
+
+}
+
+
+
+
+
+
+
+//  }
 
 
 
