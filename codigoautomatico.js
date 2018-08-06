@@ -295,7 +295,21 @@ if(getCookie("encendido") == 0){
 			    var contenedor = setInterval(function(){
 
 
-			    	//console.log("tocame "+cont);
+
+
+
+if($(".tocame_"+cont).length == 0){
+
+document.cookie = "encendido=0; expires=" + setTimeForCookies(1000) + ";";
+document.cookie = "vueltas=0; expires=" + setTimeForCookies(1000) + ";";
+clearInterval(contenedor);
+location.reload(true);
+
+}else{
+
+
+
+
 
   				  $(".tocame_"+cont).css("background-color","yellow");
 			      $(".tocame_"+cont).trigger("click");
@@ -310,6 +324,9 @@ if(getCookie("encendido") == 0){
 
 			            clearInterval(contenedor);
 			            location.reload(true);
+
+
+}
 
 			        }
 			    }, 15000); 
@@ -641,6 +658,20 @@ $("body").append('<div class="helicoptero sevena" style="position: fixed; height
 	
 			    var contenedor = setInterval(function(){
 
+
+
+
+if($(".tocame_"+cont).length == 0){
+
+document.cookie = "encendido=0; expires=" + setTimeForCookies(1000) + ";";
+document.cookie = "vueltas=0; expires=" + setTimeForCookies(1000) + ";";
+clearInterval(contenedor);
+location.reload(true);
+
+}else{
+
+
+
   				  $(".tocame_"+cont).css("background-color","yellow");
 			      $(".tocame_"+cont).trigger("click");
 
@@ -657,6 +688,9 @@ $("body").append('<div class="helicoptero sevena" style="position: fixed; height
 			            location.reload(true);
 
 			        }
+
+}
+
 			    }, 15000); 
 
 			    $(".contenedor").val(contenedor);
@@ -763,11 +797,19 @@ if ($('.z').length > 0) {
 	 $(bra).trigger("click");
 
 
+	setTimeout(function(){ 
 
+	self.close();
+
+	 }, 5000);
 
 
 }
 
+/*
+
+
+Sin Uso
 
 if($(".bj").children().length >10){
 
@@ -776,15 +818,11 @@ if($(".bj").children().length >10){
 
 	self.close();
 
-	//console.log($(bra));
-
-	//console.log("la cierrooooo ")
-
 	 }, 2000);
-
 
 }
 
+*/
 
 
 
