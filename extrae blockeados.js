@@ -1,3 +1,6 @@
+//   Varia segun el navegador suele ser 4,3
+
+
 da= $(".uiList")[4]; 
 
  bloqueados = [];
