@@ -1,5 +1,5 @@
 //   Varia segun el navegador suele ser 4,3
-
+//  hacer un if que verifique cual es el indice que podria corresponder al valor de los children 
 
 da= $(".uiList")[4]; 
 
