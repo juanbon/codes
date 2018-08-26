@@ -1,0 +1,78 @@
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+
+
+
+  rr = '';
+
+
+// /ajax/hovercard/user.php?id=100003776396726&amp;extragetparams
+
+tt = rr.split('store="{&quot;id&quot;:'); // 'store="{&quot;id&quot;:'   'mobile/friends/add_friend.php?id='
+
+//   /ajax/hovercard/user.php?id=      data-objectid="       name="uid" value="  req_promo" data-profileid="
+
+c 	   = 0;
+bolton = [];
+
+$.each(tt, function( index, value ) {
+
+
+
+if(value){
+
+
+var n = value.search(',&quot;ref_param&quot;:&quot;'); // ',&quot;ref_param&quot;:&quot;'    ">Desbloquear     '&amp;hf=friend_center_outgoi'
+
+//   &amp;extragetparams=              "><span class="fcb">   " type="button"
+
+		if(n != -1){
+
+
+			gg = value.split(',&quot;ref_param&quot;:&quot;'); // ',&quot;ref_param&quot;:&quot;'     '&amp;hf=friend_center_outgoi'       ">Desbloquear      "><span class="fcb">   " type="button"
+
+
+			// console.log(gg[0]); " data-hovercard-prefer
+
+			bolton.push(parseInt(gg[0]));
+
+		     // document.write("update blocked set status=1 where fb_id='"+gg[0]+"';<br>");
+
+
+			}
+
+		}
+	// console.log(value); 
+//	}
+
+  c++;
+});
+
+
+
+	var uniqueNames = [];
+	$.each(bolton, function(i, el){
+	    if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+	});
+
+
+
+	$.each(uniqueNames,function(ar,ex){
+
+	 document.write("INSERT INTO `blocked2` VALUES (null,'"+ex+"','0',null,null);<br>");
+
+	})
+
+
+</script>
+
+
+
+
+
+
+
