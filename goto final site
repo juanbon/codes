@@ -1,0 +1,7 @@
+var refreshIntervalId = setInterval( function(){
+
+$("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
+
+}, 2000);
+
+clearInterval(refreshIntervalId);
