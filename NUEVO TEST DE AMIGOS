@@ -64,16 +64,29 @@
 //  si es amigos nuevos,   pongo true, si es para buscar SOLICITUDES ENVIADAS PONGO FALSE
 
 
-mensablo = true;   //  mensajes bloqueados
+traebloqueados = false;  //   traigo bloqueado de una cuenta 
 
+mensablo = true;   //  mensajes bloqueados
 amigosnuevos = false;  //  agrego amigos nuevos=
 
-carta =  'mensajes bloquedos';
+//  Solicitudes canceladas es FALSE; FALSE
 
+carta =  'mensaje bloqueados JUANN BON';
 
+// /ajax/hovercard/user.php?id=749416390&amp;extragetparams=
+
+// autocomplete="off" name="uid" value="    "><span class="fcb"
+
+if(!traebloqueados){
 
 aaa = mensablo?'data-objectid="':(amigosnuevos?"/ajax/hovercard/user.php?id=":'store="{&quot;id&quot;:');
 
+
+}else{
+
+aaa = 'name="uid" value="';
+
+}
 
 tt = rr.split(aaa); // 'store="{&quot;id&quot;:'   'mobile/friends/add_friend.php?id='
 
@@ -89,7 +102,15 @@ $.each(tt, function( index, value ) {
 if(value){
 
 
+if(!traebloqueados){
+
 lapeque = mensablo?'">Desbloquear</a>':(amigosnuevos?"&amp;extragetparams":',&quot;ref_param&quot;:&quot;');
+
+}else{
+
+lapeque = '"><span class="fcb"';
+
+}
 
 
 var n = value.search(lapeque); // ',&quot;ref_param&quot;:&quot;'    ">Desbloquear     '&amp;hf=friend_center_outgoi'
@@ -135,7 +156,6 @@ var n = value.search(lapeque); // ',&quot;ref_param&quot;:&quot;'    ">Desbloque
 
 
 </script>
-
 
 
 
