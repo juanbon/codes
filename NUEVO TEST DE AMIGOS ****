@@ -4,8 +4,9 @@
 //   3  = captura amigos nuevos
 //   4  = trae amigos cancelados
 
-opcion  = 3;
-carta =  'amigos de de JUAN manuell';
+opcion  = 4;
+carta   = 'juan bouni';
+tabla   = 'blocked3';
 
 //  inicioo
 
@@ -141,7 +142,7 @@ var n = value.search(lapeque); // ',&quot;ref_param&quot;:&quot;'    ">Desbloque
 
 	$.each(uniqueNames,function(ar,ex){
 
-	 document.write("INSERT INTO `blocked` VALUES (null,'"+ex+"','0','"+carta+"',null,null);<br>");
+	 document.write("INSERT INTO `"+tabla+"` VALUES (null,'"+ex+"','0','"+carta+"',null,null);<br>");
 
 	})
 
