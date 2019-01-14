@@ -1,0 +1,8 @@
+<?php
+
+$s =<<<DATA
+CREATETABLEIFNOTEXISTS`blocked3`(`id`int(11)NOTNULLAUTO_INCREMENT,`fb_id`text,`status`int(11)DEFAULTNULL,`original`text,`created_at`datetimeDEFAULTNULL,`updated_at`datetimeDEFAULTNULL,PRIMARYKEY(`id`))ENGINE=MyISAMDEFAULTCHARSET=latin1AUTO_INCREMENT=900;INSERTINTO`blocked3`(`id`,`fb_id`,`status`,`original`,`created_at`,`updated_at`)VALUES(1,'525222313',1,'canceladosdeianmmanuel',NULL,NULL),(2,'789492261',1,'canceladosdeianmmanuel',NULL,NULL),(3,'1011587562',1,'canceladosdeianmmanuel',NULL,NULL),(4,'1017826711',1,'canceladosdeianmmanuel',NULL,NULL),(5,'1055942382',1,'canceladosdeianmmanuel',NULL,NULL),(6,'1082213165',1,'canceladosdeianmmanuel',NULL,NULL),(7,'1109407283',1,'canceladosdeianmmanuel',NULL,NULL),(8,'1137834449',1,'canceladosdeianmmanuel',NULL,NULL),(9,'1142349901',1,'canceladosdeianmmanuel',NULL,NULL),(899,'100028872278068',1,'canceladosdeianmmanuel',NULL,NULL);
+DATA;
+$re = '/\(\d+,\h*\'(\d+)\'/';
+preg_match_all($re, $s, $matches);
+print_r($matches[1]);
