@@ -1,0 +1,20 @@
+array(1) {
+  [0]=>
+  array(2) {
+    ["Table"]=>
+    string(5) "lugar"
+    ["Create Table"]=>
+    string(155) "CREATE TABLE `lugar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1"
+  }
+}
+
+
+
+
+
+
+[{"id":"1","name":"Skylab - San justo"},{"id":"2","name":"Antoinnete Ramos"},{"id":"3","name":"CCP moreno"},{"id":"4","name":"El Bosque - Quilmes"}]
