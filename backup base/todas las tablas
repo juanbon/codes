@@ -1,0 +1,62 @@
+array(12) {
+  [0]=>
+  array(1) {
+    ["Tables_in_eshos_22364449_listas"]=>
+    string(6) "FB_ALL"
+  }
+  [1]=>
+  array(1) {
+    ["Tables_in_eshos_22364449_listas"]=>
+    string(13) "FB_ALL_backup"
+  }
+  [2]=>
+  array(1) {
+    ["Tables_in_eshos_22364449_listas"]=>
+    string(7) "account"
+  }
+  [3]=>
+  array(1) {
+    ["Tables_in_eshos_22364449_listas"]=>
+    string(10) "acumulator"
+  }
+  [4]=>
+  array(1) {
+    ["Tables_in_eshos_22364449_listas"]=>
+    string(7) "blocked"
+  }
+  [5]=>
+  array(1) {
+    ["Tables_in_eshos_22364449_listas"]=>
+    string(8) "blocked2"
+  }
+  [6]=>
+  array(1) {
+    ["Tables_in_eshos_22364449_listas"]=>
+    string(8) "blocked3"
+  }
+  [7]=>
+  array(1) {
+    ["Tables_in_eshos_22364449_listas"]=>
+    string(8) "blocked4"
+  }
+  [8]=>
+  array(1) {
+    ["Tables_in_eshos_22364449_listas"]=>
+    string(7) "checker"
+  }
+  [9]=>
+  array(1) {
+    ["Tables_in_eshos_22364449_listas"]=>
+    string(7) "friends"
+  }
+  [10]=>
+  array(1) {
+    ["Tables_in_eshos_22364449_listas"]=>
+    string(5) "lista"
+  }
+  [11]=>
+  array(1) {
+    ["Tables_in_eshos_22364449_listas"]=>
+    string(5) "lugar"
+  }
+}
