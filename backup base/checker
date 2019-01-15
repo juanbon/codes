@@ -1,0 +1,23 @@
+array(1) {
+  [0]=>
+  array(2) {
+    ["Table"]=>
+    string(7) "checker"
+    ["Create Table"]=>
+    string(306) "CREATE TABLE `checker` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fb_id` text,
+  `status` int(11) DEFAULT NULL,
+  `original` text,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `not_blocked` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1"
+  }
+}
+
+
+
+
+[]
