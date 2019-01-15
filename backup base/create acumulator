@@ -1,0 +1,17 @@
+array(1) {
+  [0]=>
+  array(2) {
+    ["Table"]=>
+    string(10) "acumulator"
+    ["Create Table"]=>
+    string(362) "CREATE TABLE `acumulator` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fb_id` text,
+  `status` int(11) DEFAULT NULL,
+  `original` text,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7454 DEFAULT CHARSET=latin1 COMMENT='Juanm Manuell , juanm bon, juan bouni, JuanM Bouni, juan bon'"
+  }
+}
