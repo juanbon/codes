@@ -1,0 +1,17 @@
+array(1) {
+  [0]=>
+  array(2) {
+    ["Table"]=>
+    string(6) "FB_ALL"
+    ["Create Table"]=>
+    string(280) "CREATE TABLE `FB_ALL` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fb_id` text,
+  `status` int(11) DEFAULT NULL,
+  `original` text,
+  `created_at` datetime DEFAULT NULL,
+  `SKU` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=19420 DEFAULT CHARSET=latin1"
+  }
+}
