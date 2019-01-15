@@ -1,0 +1,17 @@
+array(1) {
+  [0]=>
+  array(2) {
+    ["Table"]=>
+    string(7) "blocked"
+    ["Create Table"]=>
+    string(288) "CREATE TABLE `blocked` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fb_id` text,
+  `status` int(11) DEFAULT NULL,
+  `original` text,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7454 DEFAULT CHARSET=latin1"
+  }
+}
