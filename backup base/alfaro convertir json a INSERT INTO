@@ -1,0 +1,91 @@
+<?php 
+
+
+$data = json_decode('');
+
+
+
+// echo count($data); 
+
+
+$tabla = "friends";
+
+
+foreach ($data as $key => $value) {
+	
+
+// echo "<pre>";
+// 	var_dump($value); 
+// echo "</pre>";
+
+
+
+
+$datin = "";
+
+
+
+foreach ($value as $key2 => $value2) {
+
+$value2 = ($value2)?"'".$value2."'":'null';
+
+$datin .=  ($key2=='id')?'null':",".$value2;
+
+// echo "<pre>";
+// 	var_dump($key2,$value2);
+// echo "</pre>";
+
+
+
+
+}
+
+/*
+
+    ["Table"]=>
+    string(7) "friends"
+    ["Create Table"]=>
+    string(340) "CREATE TABLE `friends` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fb_id` text,
+  `friends` text,
+  `my_user` text,
+  `status` int(11) DEFAULT NULL,
+  `name` text,
+  `visto` int(11) NOT NULL DEFAULT '0',
+  `referencia` text,
+  `favorito` int(11) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=20268 DEFAULT CHARSET=latin1"
+  }
+}
+
+*/
+
+
+
+echo 'INSERT INTO `'.$tabla.'` (`id`, `fb_id`, `friends`, `my_user`, `status`,`name`,`visto`,`referencia`,`favorito`) VALUES('.$datin.');<br>';
+
+// echo $datin;
+
+
+// exit;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+exit; 
+
+?>
