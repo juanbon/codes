@@ -30,11 +30,15 @@ if(!empty($_POST)){
         $nuevo = array();
 
         foreach ($matches[1] as $key3 => $value3) {
-            array_push($nuevo,(int)$value3);
+            array_push($nuevo,$value3);
         }
 
 
-        echo "abloquear = ".json_encode($nuevo).";";
+        $nuevo2 = json_encode($nuevo); // str_replace('"','' , $nuevo);
+
+        $nuevo2 = str_replace('"','' , $nuevo2);
+
+        echo "abloquear = ".$nuevo2.";";
             
         exit; 
   
