@@ -1,13 +1,12 @@
 //   Varia segun el navegador suele ser 4,3
 //  hacer un if que verifique cual es el indice que podria corresponder al valor de los children 
 
-da= $(".uiList")[4]; 
 
  bloqueados = [];
 
- $.each($(da).children(),function(a,b){
+ $.each($(".uiList>li").children(),function(a,b){
 
- rr= $(b).find("input")[2];
+ rr= $(b).find("input[name='uid']");
 
  bloqueados.push(parseInt($(rr).val()));
 
