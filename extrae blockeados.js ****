@@ -24,7 +24,7 @@ $.each(abloquear,function(r,t){
 
 if(bloqueados.includes(t)){
 
-//  gg+="INSERT INTO `blockers` VALUES (null,'"+t+"',0,'6',null,null);  ";
+//  gg+="INSERT INTO `blockers` VALUES (null,'"+t+"',0,'6',null,null);  ";  
 
 }else{
 
