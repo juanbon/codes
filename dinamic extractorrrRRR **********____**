@@ -1,0 +1,141 @@
+
+
+//   1  = trae contactos bloqueados
+//   2  = mensajes bloqueados
+//   3  = captura amigos nuevos
+//   4  = trae amigos cancelados                    
+
+opcion = 4;
+
+
+switch (opcion) {
+  case 1:
+    
+		//  extraer bloqueados de faceboook 
+
+		area = [];
+
+		$.each($(".footer>tr>.data>div>.uiList").children(),function(b,n){
+
+		area.push(parseInt($(n).find("input[name='uid']").val()));
+
+		});
+
+		console.log(JSON.stringify(area));
+
+		console.log(area.length);
+
+
+    break;
+  case 2:
+ 
+
+
+
+		//    extrae mensajes bloqueados
+
+		area = [];
+
+		$.each($(".uiInfoTable").find(".footer>tr>.data>.uiList").children(),function(b,n){
+
+		area.push(parseInt($(n).find("a").data("objectid")));
+
+		});
+
+
+		console.log(JSON.stringify(area));
+
+		console.log(area.length);
+
+
+
+    break;
+  case 3:
+   
+
+		// extrae contactos nuevos
+
+
+		area = [];
+
+		$.each($("#timeline-medley").find(".uiList"),function(t,y){
+
+
+		if($(y).children()){
+
+
+		$.each($(y).children(),function(b,n){
+
+			
+		datata = "";
+
+		if($(n).find("a").data("hovercard")){
+
+			datata = $(n).find("a").data("hovercard");
+
+			nn = datata.split("/ajax/hovercard/user.php?id=");
+
+			if(nn.length>0){
+
+		        cuuper = nn[1];
+
+		        cuatrod = cuuper.split("&extragetparams");
+
+				//  console.log(cuatrod[0]);
+
+		        area.push(parseInt(cuatrod[0]));
+
+				}
+
+			}
+
+
+		});
+
+
+		}
+
+		});
+
+
+		console.log(JSON.stringify(area));
+
+		console.log(area.length);
+
+
+
+    break;
+  case 4:
+    
+
+		///    extrae cancelados
+
+		area = [];
+
+		$.each($("#friends_center_main").children().children(),function(f,g){
+
+
+			if($(g).find(".touchable").data("store")){
+
+			jaja =$(g).find(".touchable").data("store");
+
+			area.push(parseInt(jaja.id));
+
+			}
+
+
+		});
+
+		console.log(JSON.stringify(area));
+
+		console.log(area.length);
+
+
+    break;
+
+  default:
+    break;
+}
+
+
+
