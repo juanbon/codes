@@ -1,11 +1,4 @@
-
-
-//   1  = trae contactos bloqueados
-//   2  = mensajes bloqueados
-//   3  = captura amigos nuevos
-//   4  = trae amigos cancelados                    
-
-opcion = 4;
+function llegotarde(){
 
 
 switch (opcion) {
@@ -136,6 +129,21 @@ switch (opcion) {
   default:
     break;
 }
+
+}
+
+
+
+
+
+//   1  = trae contactos bloqueados
+//   2  = mensajes bloqueados
+//   3  = captura amigos nuevos
+//   4  = trae amigos cancelados                    
+
+opcion = 4;
+
+llegotarde(opcion);
 
 
 
