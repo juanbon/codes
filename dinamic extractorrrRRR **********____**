@@ -14,7 +14,7 @@ switch (opcion) {
 
 		});
 
-		console.log(JSON.stringify(area));
+		pasar(JSON.stringify(area));
 
 		console.log(area.length);
 
@@ -36,7 +36,7 @@ switch (opcion) {
 		});
 
 
-		console.log(JSON.stringify(area));
+		pasar(JSON.stringify(area));
 
 		console.log(area.length);
 
@@ -91,7 +91,7 @@ switch (opcion) {
 		});
 
 
-		console.log(JSON.stringify(area));
+		pasar(JSON.stringify(area));
 
 		console.log(area.length);
 
@@ -119,7 +119,7 @@ switch (opcion) {
 
 		});
 
-		console.log(JSON.stringify(area));
+		pasar(JSON.stringify(area));
 
 		console.log(area.length);
 
@@ -133,6 +133,28 @@ switch (opcion) {
 }
 
 
+function pasar(data){
+
+
+       var textArea = document.createElement( "textarea" );
+       textArea.value = data;
+       document.body.appendChild( textArea );
+
+       textArea.select();
+
+       try {
+          var successful = document.execCommand( 'copy' );
+          var msg = successful ? 'successful' : 'unsuccessful';
+          console.log('Copying text command was ' + msg);
+       } catch (err) {
+          console.log('Oops, unable to copy');
+       }
+
+       document.body.removeChild( textArea );
+
+
+
+}
 
 
 
