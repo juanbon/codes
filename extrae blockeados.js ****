@@ -24,7 +24,7 @@ $.each(abloquear,function(r,t){
 
 if(bloqueados.includes(t)){
 
-//  gg+="INSERT INTO `blockers` VALUES (null,'"+t+"',0,'6',null,null);  ";  
+//  gg+="INSERT INTO `blockers` VALUES (null,'"+t+"',0,'6',null,null); \n  ";  
 
 }else{
 
@@ -32,13 +32,37 @@ if(bloqueados.includes(t)){
 
 mur++;
 
-gg +=" update blocked set status=0 where fb_id='"+t+"'; ";
+gg +=" update blocked set status=0 where fb_id='"+t+"'; \n ";
 
 }
 
 });
 
 
-gg
 
-// mur;
+function pasar(data){
+
+
+       var textArea = document.createElement( "textarea" );
+       textArea.value = data;
+       document.body.appendChild( textArea );
+
+       textArea.select();
+
+       try {
+          var successful = document.execCommand( 'copy' );
+          var msg = successful ? 'successful' : 'unsuccessful';
+          console.log('Copying text command was ' + msg);
+       } catch (err) {
+          console.log('Oops, unable to copy');
+       }
+
+       document.body.removeChild( textArea );
+
+
+
+}
+
+pasar(gg);
+
+ mur;
