@@ -9,7 +9,8 @@
 
 accion = 1;
 user   = NULL;
-tabloide = "blocked";
+
+tabloide = (user===0)?"blocked":"blocked"+user;
 
 
 
