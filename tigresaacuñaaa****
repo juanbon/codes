@@ -1,0 +1,81 @@
+
+
+
+
+
+
+
+hh = [...new Set(abloquear)];
+
+hh.length;
+
+
+console.log("cantidad total "+abloquear.length);
+
+function pasar(data){
+
+
+       var textArea = document.createElement( "textarea" );
+       textArea.value = data;
+       document.body.appendChild( textArea );
+
+       textArea.select();
+
+       try {
+          var successful = document.execCommand( 'copy' );
+          var msg = successful ? 'successful' : 'unsuccessful';
+          console.log('Copying text command was ' + msg);
+       } catch (err) {
+          console.log('Oops, unable to copy');
+       }
+
+       document.body.removeChild( textArea );
+
+
+
+}
+console.log("cantidad resumida "+hh.length);
+
+
+
+
+            will   = [];
+            ssuper  = "INSERT INTO blocked4 (id, fb_id,status,original,created_at,updated_at) VALUES ";
+            ticket = "";
+            pibe   = true;
+consulta = "";
+
+
+
+for (i = 0; i < hh.length; i++) { 
+
+    if(hh[i]){
+
+
+   tag = (pibe)?"":",";
+
+                  ticket +=tag+"(null,'"+hh[i]+"',0,'combooo',null,null)";
+
+                  pibe=false; 
+
+    }
+
+
+
+}
+
+
+
+          
+
+           consulta = ssuper+ticket+";";
+
+ pasar(consulta);
+
+
+consulta
+
+
+
+
+
