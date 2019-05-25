@@ -91,13 +91,21 @@ switch (opcion) {
 
 			if(nn.length>0){
 
+				if(nn[1]){
+
 		        cuuper = nn[1];
+
+		        if(cuuper.length > 0){
 
 		        cuatrod = cuuper.split("&extragetparams");
 
 				//  console.log(cuatrod[0]);
 
 		        area.push(parseInt(cuatrod[0]));
+
+		        }
+
+		        }
 
 				}
 
@@ -181,6 +189,5 @@ function pasar(data){
 
 
 llegotarde(opcion);
-
 
 
