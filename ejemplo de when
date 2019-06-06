@@ -1,0 +1,29 @@
+	$events = Event::leftJoin('articles', 'articles.id', '=', 'events.article_id')
+								->where('events.start_date', '>=', $start)
+								->where('events.draft', '=', '0')
+								->where('events.destacado', '=', '0')
+							//  ->where($langtxt, '!=', null)
+								->where('events.end_date','<=',$end )
+								->orWhere(function ($query) use ($start, $end) {
+								    $query->where('events.end_date', '>=', $start)
+								          ->where('events.end_date', '<=', $end);
+								})
+								->orWhere(function ($query) use ($start, $end) {
+								    $query->where('events.start_date', '>=', $start)
+								          ->where('events.start_date', '<=', $end);
+								})
+								->orWhere(function ($query) use ($start, $end) {
+								    $query->where('events.start_date', '<=', $start)
+								          ->where('events.end_date', '>=', $end);
+								})
+
+
+
+		 						->when($request->city, function ($query, $role) {
+							        return $query->where('events.title', 'like', '%agua%');
+							    })
+
+
+								->select('events.*','articles.title_en AS titlebt_en','articles.title_pt AS titlebt_pt','articles.title_fr AS titlebt_fr','articles.description_en AS descriptionbt_en','articles.description_pt AS descriptionbt_pt','articles.description_fr AS descriptionbt_fr')
+                                ->orderBy('events.start_date', 'ASC')
+                                ->get();
